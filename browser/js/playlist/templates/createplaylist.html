@@ -1,0 +1,25 @@
+<div class="well">
+  <form name="newPlaylistForm" class="form-horizontal">
+    <fieldset>
+      <legend>New Playlist</legend>
+      <div ng-messages="newPlaylistForm.name.$error">
+        <div class="alert alert-warning" ng-show="newPlaylistForm.name.$invalid && newPlaylistForm.name.$dirty">
+          <div ng-message="required">Please enter a value for this field</div>
+          <div ng-message="maxlength">Please enter a name less than 16 characters</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-2 control-label">Name</label>
+        <div class="col-xs-10">
+          <input class="form-control" required name="name" ng-model="newPlaylist.name" ng-maxlength="16" type="text">
+          {{newPlaylist}}
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-xs-10 col-xs-offset-2">
+          <button type="submit" class="btn btn-success" ng-disabled="newPlaylistForm.name.$invalid" ng-click="createPlaylist(newPlaylist)">Create Playlist</button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>
